@@ -1,4 +1,4 @@
-class Manager {
+class Manager extends Employee {
     constructor(name, office, employeeNum, project) {
         this.name = name;
         this.office = office;
