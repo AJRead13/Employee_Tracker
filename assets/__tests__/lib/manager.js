@@ -1,8 +1,9 @@
-class Manager extends Employee {
-    constructor(name, office, employeeNum, project) {
-        this.name = name;
-        this.office = office;
-        this.employeeNum = employeeNum;
-        this.project = project;
-    }
+const Employee = require('./employee.js');
+
+class Manager extends Employee (
+    constructor(officeNum){
+     super(office);
+     this.office = office;
 }
+)
+const 

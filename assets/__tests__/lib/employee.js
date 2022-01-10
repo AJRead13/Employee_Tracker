@@ -1,7 +1,11 @@
 class Employee {
-    constructor(name, office, employeeNum) {
+    constructor(name, employeeNum, email) {
         this.name = name;
-        this.office = office;
         this.employeeNum = employeeNum;
+        this.email = email;
     }
 }
+
+getName();
+
+getEmployeeNum();
