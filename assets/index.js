@@ -30,3 +30,4 @@ const questions = [{
 ]
 
 
+module.exports
