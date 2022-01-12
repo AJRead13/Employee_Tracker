@@ -1,4 +1,4 @@
-const index = require('./assets.index.js.js');
+const index = require('../index.js');
 const employee = require('./employee.js');
 const engineer = require('./engineer.js');
 const manager = require('./manager.js');
@@ -7,16 +7,51 @@ const intern = require('./intern.js');
 
 function renderCard(data) {
   data.map(employee => {
-    if (employee.role() === "Engineer") {
+    if (employee.getRole() === "Engineer") {
       return renderEngineer(data);
     }
-    if (employee.posotion() === "Manager") {
+    if (employee.getRole() === "Manager") {
       return renderManager(data);
     }
-    if (employee.position() === "Intern") {
+    if (employee.getRole() === "Intern") {
       return renderIntern(data);
     }
   }
+  )}
+
+function renderEngineer() {
+  `<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${data.title}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">https://www.github.com/${data.gitHub}</a>
+    <a href="#" class="card-link">${data.email}</a>
+  </div>
+</div>`
+}
+
+function renderIntern() {
+  `<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${data.title}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
+    <p class="card-text">${data.school}</p>
+    <a href="#" class="card-link">https://www.github.com/${data.gitHub}</a>
+    <a href="#" class="card-link">${data.email}</a>
+  </div>
+</div>`
+}
+
+function renderManager() {
+  `<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Manager</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
+    <p class="card-text">${data.officeNum}</p>
+    <a href="#" class="card-link">${data.email}</a>
+  </div>
+`
 }
 
  function generateHTML(data){
