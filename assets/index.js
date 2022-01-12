@@ -115,16 +115,15 @@ function roleQuestion(){
 function buildTeam(){
     questionsManager();
     roleQuestion();
-
+    return response;
 }
 
 function init() {
-    buildTeam();
-
-    //   .then((response) => {
-    //     const html = genHTML(response);
-    //     const fileName = `Employee.html`;
-    //     writeToFile(fileName, html)
+    buildTeam()
+      .then((response) => {
+        const html = genHTML(response);
+        const fileName = `Employee.html`;
+        writeToFile(fileName, html)
       })
    }
   
