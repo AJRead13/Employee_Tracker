@@ -4,21 +4,29 @@ const engineer = require('./engineer.js');
 const manager = require('./manager.js');
 const intern = require('./intern.js');
 
+const teamCards = []
 
 function renderCard(data) {
   data.map(employee => {
     if (employee.getRole() === "Engineer") {
+      const engineerTab = renderEngineer(data)
+      teamCards.push(engineerTab);
       return renderEngineer(data);
     }
     if (employee.getRole() === "Manager") {
+      const managerTab = renderManager(data);
+      teamCards.push(managerTab);
       return renderManager(data);
     }
     if (employee.getRole() === "Intern") {
+      const internTab = renderIntern(data)
+      teamCards.push(internTab);
       return renderIntern(data);
     }
   }
   )
 }
+// renderCard();
 
 function renderEngineer(data) {
   `<div class="card" style="width: 18rem;">
@@ -47,7 +55,7 @@ function renderIntern(data) {
 function renderManager(data) {
   `<div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Manager</h5>
+    <h5 class="card-title">${data.title}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
     <p class="card-text">${data.officeNum}</p>
     <a href="#" class="card-link">${data.email}</a>
@@ -55,9 +63,8 @@ function renderManager(data) {
 `
 }
 
-//renderCard();
-
 function generateHTML(data) {
+  renderCard();
   const engineerSection = renderEngineer(data)
   const managerSection = renderManager(data)
   const internSection = renderIntern(data)
@@ -75,13 +82,20 @@ function generateHTML(data) {
     <title>Employee Tracker</title>
 </head>
 <body>
-    <header> Employee Tracker</header>
-
-${managerSection}
-
-${engineerSection}
-
-${internSection}
+    <header>
+      <nav class="navbar">
+        <span class="navbar -brand mb-0 h1 w-100 text-center" id="navbar-text">Your Team Profile</span>
+      </nav>
+    </header>
+  <main>
+    <div class="container">
+      <div class="row justify-content-center">
+      ${managerSection}
+      ${engineerSection}
+      ${internSection}
+      </div>
+    </div>
+  </main>
 
 
 </body>

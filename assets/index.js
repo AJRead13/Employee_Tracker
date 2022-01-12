@@ -112,12 +112,18 @@ function roleQuestion() {
                 questionIntern();
             if (response.choices === "Finish"){
             const html = genHTML(team);
-                const fileName = `Employee.html`;
+                const fileName = `./dist/Employee.html`;
                 writeToFile(fileName, html);
             }
         })
 
 }
+
+function writeToFile(fileName, team) {
+
+    fs.writeFile(fileName, team,
+      (err) => err ? console.log(err) : console.log(team));
+ }
 
 function buildTeam() {
     questionsManager();
@@ -126,20 +132,6 @@ function buildTeam() {
 
 function init() {
     buildTeam()
-        //       {
-        //     const html = genHTML(response);
-        //     const fileName = `Employee.html`;
-        //     writeToFile(fileName, html)
-        // })
+      
 }
-
-
- function writeToFile(fileName, data) {
-
-    fs.writeFile(fileName, data,
-      (err) => err ? console.log(err) : console.log(data));
- }
-
 init();
-
-module.exports
