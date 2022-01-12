@@ -17,9 +17,10 @@ function renderCard(data) {
       return renderIntern(data);
     }
   }
-  )}
+  )
+}
 
-function renderEngineer() {
+function renderEngineer(data) {
   `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${data.title}</h5>
@@ -31,7 +32,7 @@ function renderEngineer() {
 </div>`
 }
 
-function renderIntern() {
+function renderIntern(data) {
   `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${data.title}</h5>
@@ -43,7 +44,7 @@ function renderIntern() {
 </div>`
 }
 
-function renderManager() {
+function renderManager(data) {
   `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Manager</h5>
@@ -54,11 +55,13 @@ function renderManager() {
 `
 }
 
- function generateHTML(data){
+//renderCard();
+
+function generateHTML(data) {
   const engineerSection = renderEngineer(data)
   const managerSection = renderManager(data)
   const internSection = renderIntern(data)
-  return  `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -66,7 +69,7 @@ function renderManager() {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link src="assets/styles/style.css" rel="stylesheet">
+    <link src="./assets/styles/style.css" rel="stylesheet">
 
 
     <title>Employee Tracker</title>
@@ -74,16 +77,11 @@ function renderManager() {
 <body>
     <header> Employee Tracker</header>
 
+${managerSection}
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Manager</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
-    <p class="card-text">${data.officeNum}</p>
-    <a href="#" class="card-link"> https://www.github.com/${data.gitHub}</a>
-    <a href="#" class="card-link">${data.email}</a>
-  </div>
+${engineerSection}
 
+${internSection}
 
 
 </body>
