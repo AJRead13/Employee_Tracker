@@ -1,15 +1,11 @@
-const employee = require('./lib/employee.js');
-const engineer = require('./lib/engineer.js');
-const manager = require('./lib/manager.js');
-const intern = require('./lib/intern.js');
 const genHTML = require('./lib/genHTML.js');
 const inquirer = require("inquirer");
+const Employee =require("./lib/employee.js");
 const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
 const team = [];
-
 
 
 const manQuestions = [{
@@ -109,12 +105,12 @@ function roleQuestion(){
     if(response.choices === "Intern")
     questionIntern();
     if(response.choices === "Finish")
-    writeToFile();
-    
+    writeToFile();    
 }
+
 function buildTeam(){
-    questionsManager();
-    roleQuestion();
+    questionsManager()
+    .then(roleQuestion());
     return response;
 }
 
