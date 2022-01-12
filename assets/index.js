@@ -118,7 +118,6 @@ function buildTeam(){
 
 }
 
-
 function init() {
     buildTeam();
 
