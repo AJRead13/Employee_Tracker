@@ -6,32 +6,33 @@ const intern = require('./intern.js');
 
 const teamCards = []
 
+
 function renderCard(data) {
   data.map(employee => {
+    console.log("building cards");
     if (employee.getRole() === "Engineer") {
-      const engineerTab = renderEngineer(data)
+      const engineerTab = renderEngineer(employee)
       teamCards.push(engineerTab);
       return renderEngineer(data);
     }
     if (employee.getRole() === "Manager") {
-      const managerTab = renderManager(data);
+      const managerTab = renderManager(employee);
       teamCards.push(managerTab);
       return renderManager(data);
     }
     if (employee.getRole() === "Intern") {
-      const internTab = renderIntern(data)
+      const internTab = renderIntern(employee);
       teamCards.push(internTab);
       return renderIntern(data);
     }
   }
   )
 }
-// renderCard();
 
 function renderEngineer(data) {
-  `<div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${data.title}</h5>
+    <h5 class="card-title">Engineer</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link">https://www.github.com/${data.gitHub}</a>
@@ -41,19 +42,18 @@ function renderEngineer(data) {
 }
 
 function renderIntern(data) {
-  `<div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${data.title}</h5>
+    <h5 class="card-title">Intern</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
     <p class="card-text">${data.school}</p>
-    <a href="#" class="card-link">https://www.github.com/${data.gitHub}</a>
     <a href="#" class="card-link">${data.email}</a>
   </div>
 </div>`
 }
 
 function renderManager(data) {
-  `<div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${data.title}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
@@ -64,10 +64,10 @@ function renderManager(data) {
 }
 
 function generateHTML(data) {
-  renderCard();
-  const engineerSection = renderEngineer(data)
-  const managerSection = renderManager(data)
-  const internSection = renderIntern(data)
+  renderCard(data);
+  // const engineerSection = renderEngineer(data)
+  // const managerSection = renderManager(data)
+  // const internSection = renderIntern(data)
   return `<!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +76,7 @@ function generateHTML(data) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link src="./assets/styles/style.css" rel="stylesheet">
+    <link src="../assets/styles/style.css" rel="stylesheet">
 
 
     <title>Employee Tracker</title>
@@ -90,9 +90,7 @@ function generateHTML(data) {
   <main>
     <div class="container">
       <div class="row justify-content-center">
-      ${managerSection}
-      ${engineerSection}
-      ${internSection}
+     ${teamCards.join("")}
       </div>
     </div>
   </main>
