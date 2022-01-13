@@ -1,29 +1,8 @@
 const Manager = require('../lib/manager.js');
 
-describe('Manager', () => {
-  describe('Initialization', () => {
-    // Positive test
-    it("", () => {
-      // Arrange
-      const text = '';
-
-      // Act
-      const obj = new Manager(text);
-
-      // Assert
-      expect(obj.text).toEqual(text);
-    });
-
-    // Exception test
-    it("", () => {
-      // Arrange
-      const cb = () => new Manager();
-      const err = new Error(
-        ""
-      );
-
-      // Assert
-      expect(cb).toThrowError(err);
-    });
-  });
-});
+test('employee object created', () =>{
+  const manager = new Manager('Vesemir', 'vesemir@khaermorn.com', "Leader")
+  expect(manager.name).toEqual("Vesemir");
+  expect(manager.email).toEqual("vesemir@khaermorn.com");
+  expext(manager.title).toEqual("Leader");
+})
