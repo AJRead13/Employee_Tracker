@@ -4,3 +4,21 @@
     background-color: rgb(32, 58, 82);
     color: gold;
 }
+#team {
+   justify-content: center;
+    border-width: 3px;
+    border-style: ridge;
+    border-radius: 10px;
+    border-color: black;
+}
+.card-body  {
+    border-width: 3px;
+    border-style: ridge;
+    border-radius: 10px;
+    border-color: black;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

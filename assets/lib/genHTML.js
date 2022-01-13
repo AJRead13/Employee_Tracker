@@ -30,11 +30,11 @@ function renderCard(data) {
 }
 
 function renderEngineer(data) {
-  return `<div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 22rem;">
   <div class="card-body">
-    <h5 class="card-title">Engineer</h5>
+    <h5 class="card-title">Engineer ♫ </h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text"></p>
     <a href="#" class="card-link">https://www.github.com/${data.gitHub}</a>
     <a href="#" class="card-link">${data.email}</a>
   </div>
@@ -42,9 +42,9 @@ function renderEngineer(data) {
 }
 
 function renderIntern(data) {
-  return `<div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 22rem;">
   <div class="card-body">
-    <h5 class="card-title">Intern</h5>
+    <h5 class="card-title">Intern ♪</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
     <p class="card-text">${data.school}</p>
     <a href="#" class="card-link">${data.email}</a>
@@ -53,9 +53,9 @@ function renderIntern(data) {
 }
 
 function renderManager(data) {
-  return `<div class="card" style="width: 18rem;">
+  return `<div class="card" style="width: 22rem;">
   <div class="card-body">
-    <h5 class="card-title">${data.title}</h5>
+    <h5 class="card-title">${data.title} Ω</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data.name}</h6>
     <p class="card-text">${data.officeNum}</p>
     <a href="#" class="card-link">${data.email}</a>
@@ -76,7 +76,7 @@ function generateHTML(data) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link src="../assets/styles/style.css" rel="stylesheet">
+    <link href="../styles/style.css" rel="stylesheet">
 
 
     <title>Employee Tracker</title>
@@ -84,7 +84,7 @@ function generateHTML(data) {
 <body>
     <header>
       <nav class="navbar">
-        <span class="navbar -brand mb-0 h1 w-100 text-center" id="navbar-text">Your Team Profile</span>
+        <span class="navbar -brand mb-0 h1 w-100 text-center" id="team">Your Team Profile</span>
       </nav>
     </header>
   <main>
