@@ -13,7 +13,7 @@
 ## Usage
         - This application is ran through the terminal, invoked by calling node index.js.
 ## Screenshot
-
+![ScreenShot](assets/images/builtSS.jpg)
 ## Credits
 
 ## License
